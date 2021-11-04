@@ -55,8 +55,6 @@ let joyRunFlag = true;
 let jdNotify = true;//是否开启静默运行，默认true开启
 let joyRunNotify = true;//宠汪汪赛跑获胜后是否推送通知，true推送，false不推送通知
 const invokeKey = 'q8DNJdpcfRQ69gIx';
-const lkt = Date.now();
-const lks = hex_md5(invokeKey+lkt);``
 const JD_API_HOST = 'https://jdjoy.jd.com/pet'
 const weAppUrl = 'https://draw.jdfcloud.com//pet';
 !(async () => {
@@ -1045,6 +1043,8 @@ function TotalBean() {
   })
 }
 function taskUrl(url, Host, reqSource) {
+  let lkt = Date.now();
+  let lks = hex_md5(invokeKey+lkt);
   return {
     url: url,
     headers: {
@@ -1063,6 +1063,8 @@ function taskUrl(url, Host, reqSource) {
   }
 }
 function taskPostUrl(url, body, reqSource, Host, ContentType) {
+  let lkt = Date.now();
+  let lks = hex_md5(invokeKey+lkt);
   return {
     url: url,
     body: body,

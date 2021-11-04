@@ -39,8 +39,6 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 let jdNotify = false;//是否开启静默运行，默认false关闭(即:奖品兑换成功后会发出通知提示)
 //自定义配置;
 const invokeKey = "q8DNJdpcfRQ69gIx";
-const lkt = Date.now();
-const lks = hex_md5(invokeKey+lkt);``
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '';
 if ($.isNode()) {
@@ -213,6 +211,8 @@ async function joyReward() {
   }
 }
 function getExchangeRewards() {
+  let lkt = Date.now();
+  let lks = hex_md5(invokeKey+lkt);
   let opt = {
     url: "//jdjoy.jd.com/common/gift/getBeanConfigs?reqSource=h5&invokeKey="+invokeKey,
     method: "GET",
@@ -258,6 +258,8 @@ function getExchangeRewards() {
   })
 }
 function exchange(saleInfoId, orderSource) {
+  let lkt = Date.now();
+  let lks = hex_md5(invokeKey+lkt);
   let body = {"buyParam":{"orderSource":orderSource,"saleInfoId":saleInfoId},"deviceInfo":{}}
   let opt = {
     "url": "//jdjoy.jd.com/common/gift/new/exchange?reqSource=h5&invokeKey="+invokeKey,
